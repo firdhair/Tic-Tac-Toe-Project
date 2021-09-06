@@ -1,0 +1,176 @@
+@font-face {
+  font-family: "Paladise";
+  src: url(Paladise.ttf);
+}
+
+@font-face {
+  font-family: "Rockinsoda";
+  src: url(Rockinsoda.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #2c2c2c;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+li,
+button,
+label,
+input,
+a,
+p {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4,
+h5 {
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #2c2c2c;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #78a09f;
+  font-family: "Montserrat";
+}
+
+.title {
+  font-family: "Rockinsoda";
+  font-size: 7.5rem;
+  text-align: center;
+  color: #eecda1;
+  margin-top: 4rem;
+}
+
+/* BOXES */
+.boxes {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 6rem 6rem;
+  margin: 0.2rem;
+  border: 0.2rem solid #eecda1;
+  border-radius: 2.5rem;
+  cursor: pointer;
+}
+
+.box img {
+  max-width: 90%;
+}
+
+.cross,
+.circle {
+  padding: 2.5rem 2.1rem;
+}
+
+.box:hover {
+  background-color: #eecda1;
+}
+
+/* RESTART BUTTON */
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5rem 0rem;
+}
+
+.button button {
+  border: none;
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: 400;
+  margin-bottom: 10rem;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  color: #eecda1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #f3fbfc;
+}
+
+.button button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.restart {
+  max-width: 30%;
+  margin-left: 1rem;
+}
+/*# sourceMappingURL=style.css.map */

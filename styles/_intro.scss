@@ -1,0 +1,74 @@
+body {
+  min-height: 100vh;
+  background-color: rgb(120, 160, 159);
+  font-family: "Montserrat";
+}
+
+.title {
+  font-family: "Rockinsoda";
+  font-size: 7.5rem;
+  text-align: center;
+  color: #eecda1;
+  margin-top: 4rem;
+}
+
+/* BOXES */
+
+.boxes {
+  max-width: 70%;
+  margin: auto;
+  margin-top: 5rem;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: row;
+  @include flex(center, center, row);
+}
+
+.box {
+  @include flex(center, center, row);
+  padding: 6rem 6rem;
+  margin: 0.2rem;
+  //background-color: #f8e6cf;
+  border: 0.2rem solid #eecda1;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  img {
+    max-width: 90%;
+  }
+}
+
+.cross,
+.circle {
+  padding: 2.5rem 2.1rem;
+}
+
+.box:hover {
+  background-color: #eecda1;
+}
+
+/* RESTART BUTTON */
+.button {
+  @include flex(center, center, column);
+  margin: 5rem 0rem;
+  button {
+    border: none;
+    padding: 1rem 5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: "Montserrat";
+    font-weight: 400;
+    margin-bottom: 10rem;
+    transition: transform 0.3s;
+    color: #eecda1;
+    display: flex;
+    background-color: rgb(243, 251, 252);
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+}
+
+.restart {
+  max-width: 30%;
+  margin-left: 1rem;
+}

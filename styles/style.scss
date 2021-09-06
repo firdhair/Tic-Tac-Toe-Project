@@ -1,0 +1,27 @@
+$header1: 2.5rem;
+$header2: 5rem;
+$header3: 3rem;
+$header4: 2rem;
+$text: 2.5rem;
+$gradient: linear-gradient(left, #38d39f, #38a4d3);
+
+@font-face {
+  font-family: "Paladise";
+  src: url(Paladise.ttf);
+}
+@font-face {
+  font-family: "Rockinsoda";
+  src: url(Rockinsoda.ttf);
+}
+//$background-color: #154353;
+
+$gray-text: #2c2c2c;
+
+@mixin flex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+@import "global";
+@import "intro";

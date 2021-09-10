@@ -8,14 +8,14 @@ body {
   font-family: "Rockinsoda";
   font-size: 7.5rem;
   text-align: center;
-  color: #eecda1;
+  color: #eec084;
   margin-top: 4rem;
 }
 
 /* BOXES */
 
 .boxes {
-  max-width: 70%;
+  // max-width: 70%;
   margin: auto;
   margin-top: 5rem;
   // justify-content: center;
@@ -26,21 +26,23 @@ body {
 
 .box {
   @include flex(center, center, row);
-  padding: 6rem 6rem;
+  // padding: 6rem 6rem;
+  min-height: 12rem;
+  min-width: 12rem;
   margin: 0.2rem;
   //background-color: #f8e6cf;
   border: 0.2rem solid #eecda1;
   border-radius: 2.5rem;
   cursor: pointer;
   img {
-    max-width: 90%;
+    max-width: 75%;
   }
 }
 
-.cross,
-.circle {
-  padding: 2.5rem 2.1rem;
-}
+// .cross,
+// .circle {
+//   padding: 2.5vh 2.1vh;
+// }
 
 .box:hover {
   background-color: #eecda1;
@@ -49,17 +51,17 @@ body {
 /* RESTART BUTTON */
 .button {
   @include flex(center, center, column);
-  margin: 5rem 0rem;
+  margin: 10rem 0rem;
   button {
     border: none;
     padding: 1rem 5rem;
     border-radius: 2rem;
     cursor: pointer;
     font-family: "Montserrat";
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 10rem;
     transition: transform 0.3s;
-    color: #eecda1;
+    color: #eec084;
     display: flex;
     background-color: rgb(243, 251, 252);
   }

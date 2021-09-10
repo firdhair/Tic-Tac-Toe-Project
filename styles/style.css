@@ -69,13 +69,12 @@ body {
   font-family: "Rockinsoda";
   font-size: 7.5rem;
   text-align: center;
-  color: #eecda1;
+  color: #eec084;
   margin-top: 4rem;
 }
 
 /* BOXES */
 .boxes {
-  max-width: 70%;
   margin: auto;
   margin-top: 5rem;
   display: -webkit-box;
@@ -107,7 +106,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: 6rem 6rem;
+  min-height: 12rem;
+  min-width: 12rem;
   margin: 0.2rem;
   border: 0.2rem solid #eecda1;
   border-radius: 2.5rem;
@@ -115,12 +115,7 @@ body {
 }
 
 .box img {
-  max-width: 90%;
-}
-
-.cross,
-.circle {
-  padding: 2.5rem 2.1rem;
+  max-width: 75%;
 }
 
 .box:hover {
@@ -142,7 +137,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 5rem 0rem;
+  margin: 10rem 0rem;
 }
 
 .button button {
@@ -151,13 +146,13 @@ body {
   border-radius: 2rem;
   cursor: pointer;
   font-family: "Montserrat";
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 10rem;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
-  color: #eecda1;
+  color: #eec084;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

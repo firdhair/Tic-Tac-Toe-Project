@@ -118,6 +118,10 @@ body {
   max-width: 75%;
 }
 
+.circle img {
+  min-width: 70%;
+}
+
 .box:hover {
   background-color: #eecda1;
 }

@@ -26,7 +26,6 @@ body {
 
 .box {
   @include flex(center, center, row);
-  // padding: 6rem 6rem;
   min-height: 12rem;
   min-width: 12rem;
   margin: 0.2rem;
@@ -36,6 +35,12 @@ body {
   cursor: pointer;
   img {
     max-width: 75%;
+  }
+}
+
+.circle {
+  img {
+    min-width: 70%;
   }
 }
 

@@ -118,6 +118,20 @@ body {
   max-width: 75%;
 }
 
+.result {
+  font-family: "Rockinsoda";
+  text-align: center;
+  color: #f3b86a;
+  max-width: 30%;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.result p {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
 .circle img {
   min-width: 70%;
 }

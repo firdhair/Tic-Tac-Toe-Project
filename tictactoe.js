@@ -1,402 +1,229 @@
 const boxes = Array.from(document.querySelectorAll(".box"));
+const box1 = document.querySelector(".box1");
+const result = document.querySelector(".result");
+const restartButton = document.querySelector(".restart-button");
 const button = document.querySelector("button");
-let arrValue = [
-  ["1", "2", "3"],
-  ["4", "5", "6"],
-  ["7", "8", "9"],
-];
-let game_won = false;
-let choice;
 
-boxes.forEach((box) =>
-  box.addEventListener("click", () => {
-    //playGame(event);
-    if (game_won == true) {
-      //playGame();
-      return;
-    }
-    playGame(event);
-  })
-);
+const playerFactory = (name, mark, turn) => {
+  return { name, mark, turn };
+};
 
-function playGame(event) {
-  console.log("game won?: " + game_won);
-  checkBoard();
-  playerHuman(event);
-  //playerComputer();
-  checkBoard();
-  if (game_won == false) {
-    setTimeout(playerComputer, 500);
-  }
-}
+const gamePlay = (() => {
+  const player = playerFactory("player", "X", true);
+  const computer = playerFactory("computer", "O", false);
 
-function checkBoard() {
-  if (arrValue[0][0] == "X" && arrValue[0][1] == "X" && arrValue[0][2] == "X") {
-    console.log("You Won!");
-    game_won = !game_won;
-    console.log(game_won);
-    return;
-  } else if (
-    arrValue[0][0] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[2][2] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][0] == "X" &&
-    arrValue[1][0] == "X" &&
-    arrValue[2][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][1] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[2][1] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][2] == "X" &&
-    arrValue[0][1] == "X" &&
-    arrValue[0][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][2] == "X" &&
-    arrValue[1][2] == "X" &&
-    arrValue[2][2] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][2] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[2][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[1][0] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[1][2] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[1][2] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[1][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][0] == "X" &&
-    arrValue[2][1] == "X" &&
-    arrValue[2][2] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][0] == "X" &&
-    arrValue[1][0] == "X" &&
-    arrValue[0][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][0] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[0][2] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[0][1] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "X" &&
-    arrValue[1][2] == "X" &&
-    arrValue[0][2] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "X" &&
-    arrValue[2][1] == "X" &&
-    arrValue[2][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "X" &&
-    arrValue[1][1] == "X" &&
-    arrValue[0][0] == "X"
-  ) {
-    console.log("You Won!");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][0] == "O" &&
-    arrValue[0][1] == "O" &&
-    arrValue[0][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    console.log(game_won);
-    return;
-  } else if (
-    arrValue[0][0] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[2][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][0] == "O" &&
-    arrValue[1][0] == "O" &&
-    arrValue[2][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][1] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[2][1] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][2] == "O" &&
-    arrValue[0][1] == "O" &&
-    arrValue[0][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][2] == "O" &&
-    arrValue[1][2] == "O" &&
-    arrValue[2][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[0][2] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[2][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[1][0] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[1][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[1][2] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[1][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][0] == "O" &&
-    arrValue[2][1] == "O" &&
-    arrValue[2][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][0] == "O" &&
-    arrValue[1][0] == "O" &&
-    arrValue[0][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][0] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[0][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[0][1] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "O" &&
-    arrValue[1][2] == "O" &&
-    arrValue[0][2] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "O" &&
-    arrValue[2][1] == "O" &&
-    arrValue[2][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else if (
-    arrValue[2][2] == "O" &&
-    arrValue[1][1] == "O" &&
-    arrValue[0][0] == "O"
-  ) {
-    console.log("You Lose :( !");
-    game_won = !game_won;
-    return;
-  } else {
-    return;
-  }
-}
-
-function playerHuman(event) {
-  // get box class
-  checkBoard();
-  let divClass = event.originalTarget.className;
-  let whichArray = divClass.substr(length - 1);
-  let getClass = document.querySelector(`div[class="${divClass}"]`);
-
-  newPic = document.createElement("img");
-  newPic.setAttribute("src", "./icons/cross.svg");
-  getClass.appendChild(newPic);
-  getClass.classList.add("cross");
-
-  // console.log(divClass);
-  // console.log(divClass.substr(length - 1));
-  if (whichArray == "1") {
-    arrValue[0][0] = "X";
-  } else if (whichArray == "2") {
-    arrValue[0][1] = "X";
-  } else if (whichArray == "3") {
-    arrValue[0][2] = "X";
-  } else if (whichArray == "4") {
-    arrValue[1][0] = "X";
-  } else if (whichArray == "5") {
-    arrValue[1][1] = "X";
-  } else if (whichArray == "6") {
-    arrValue[1][2] = "X";
-  } else if (whichArray == "7") {
-    arrValue[2][0] = "X";
-  } else if (whichArray == "8") {
-    arrValue[2][1] = "X";
-  } else if (whichArray == "9") {
-    arrValue[2][2] = "X";
-  }
-}
-
-function playerComputer() {
-  checkBoard();
-  let random = Math.floor(Math.random() * 3);
-  let random2 = Math.floor(Math.random() * 3);
-  choice = arrValue[random][random2];
-
-  if (choice == "O" || choice == "X") {
-    while (choice == "O" || choice == "X") {
-      console.log("before:" + choice);
-      randomCircle();
-      console.log("after: " + choice);
-      playerComputer();
-    }
-  } else if (choice !== "O" || choice !== "X") {
-    arrValue[random][random2] = "O";
-    if (choice == 1) {
-      let getClass = document.querySelector(".box1");
-      createCircle(getClass);
-    } else if (choice == 2) {
-      let getClass = document.querySelector(".box2");
-      createCircle(getClass);
-    } else if (choice == 3) {
-      let getClass = document.querySelector(".box3");
-      createCircle(getClass);
-    } else if (choice == 4) {
-      let getClass = document.querySelector(".box4");
-      createCircle(getClass);
-    } else if (choice == 5) {
-      let getClass = document.querySelector(".box5");
-      createCircle(getClass);
-    } else if (choice == 6) {
-      let getClass = document.querySelector(".box6");
-      createCircle(getClass);
-    } else if (choice == 7) {
-      let getClass = document.querySelector(".box7");
-      createCircle(getClass);
-    } else if (choice == 8) {
-      let getClass = document.querySelector(".box8");
-      createCircle(getClass);
-    } else if (choice == 9) {
-      let getClass = document.querySelector(".box9");
-      createCircle(getClass);
-    }
-  }
-  console.log(choice);
-}
-
-function randomCircle() {
-  let random = Math.floor(Math.random() * 3);
-  let random2 = Math.floor(Math.random() * 3);
-  choice = arrValue[random][random2];
-  console.log("randomCircle: " + choice);
-  return choice;
-}
-
-function createCircle(getClass) {
-  newPic = document.createElement("img");
-  newPic.setAttribute("src", "./icons/circle.svg");
-  getClass.appendChild(newPic);
-  getClass.classList.add("circle");
-}
-
-let getValue = (function () {
-  //let arrValue = [];
-
-  function showValue(value) {
-    arrValue.push(value);
-    console.log(arrValue);
-  }
   return {
-    showValue,
+    player,
+    computer,
   };
 })();
 
-let player = (choice) => {};
+const gameBoard = (() => {
+  let boardValue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let allBoard = [];
+  let classNames = [];
+  let valueCheck = 0;
+  let computer_won = "false";
+  let player_won = "false";
+
+  boxes.forEach(function (box) {
+    box.addEventListener("click", (e) => {
+      let divClass = e.originalTarget.className; // get div class
+      checkWinner();
+
+      console.log(boardValue, allBoard, valueCheck, computer_won, player_won);
+
+      if (
+        gamePlay.player.turn == true &&
+        gamePlay.computer.turn == false &&
+        computer_won == "false" &&
+        player_won == "false" &&
+        allBoard.length < 9 &&
+        divClass !== ""
+      ) {
+        let boardString = divClass.substr(length - 1);
+        let boardNum = parseInt(boardString);
+        let getClass = document.querySelector(`div[class="${divClass}"]`);
+        classNames.push(getClass);
+        console.log(getClass, classNames);
+
+        newPic = document.createElement("img");
+        newPic.setAttribute("src", "./icons/cross.svg");
+        getClass.appendChild(newPic);
+        getClass.classList.add("cross");
+
+        gamePlay.player.turn = false;
+        gamePlay.computer.turn = true;
+
+        // replace boardValue with X
+        for (let i = 1; i < 10; i++) {
+          if (boardNum == i) {
+            boardValue[i - 1] = "X";
+            allBoard.push(typeof boardValue[i - 1]);
+          }
+        }
+
+        if (player_won == "false" && computer_won == "false") {
+          setTimeout(playerComputer, 500);
+        }
+        checkWinner();
+      }
+    });
+  });
+
+  // restartButton.addEventListener("click", restartGame);
+
+  // function restartGame() {
+  //   boardValue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  //   allBoard = [];
+  //   valueCheck = 0;
+  //   computer_won = "false";
+  //   player_won = "false";
+  //   gamePlay.player.turn = true;
+  //   gamePlay.computer.turn = false;
+
+  //   console.log(box1);
+  //   console.log(boardValue, allBoard, valueCheck, computer_won, player_won);
+  //   box1.classList.remove("cross");
+  //   console.log(box1);
+  // }
+
+  function playerComputer() {
+    const allStrings = allBoard.every((board) => typeof board == "string");
+
+    if (gamePlay.computer.turn == true && gamePlay.player.turn == false) {
+      randomComputer();
+      console.log(boardValue);
+
+      if (allBoard.length == 9 && allStrings == true) {
+        checkWinner();
+        console.log("computer won: ", computer_won);
+        if (computer_won == "true") {
+          computerHasWon();
+        } else if (computer_won == "false" && player_won == "false") {
+          gameTie();
+        }
+        console.log("probably a tie");
+      }
+    }
+  }
+
+  function randomComputer() {
+    let random = Math.floor(Math.random() * 9);
+    let boardRandom = boardValue[random];
+    let getClass;
+
+    // check if computer has chosen on a filled board
+    if (
+      boardRandom == "O" ||
+      (boardRandom == "X" &&
+        computer_won == "false" &&
+        player_won == "false" &&
+        allBoard.length < 9)
+    ) {
+      randomComputer();
+      //randomComputer();
+    }
+
+    // fill board when the requirements are
+    else if (
+      boardRandom !== "O" &&
+      boardRandom !== "X" &&
+      computer_won == "false" &&
+      player_won == "false"
+    ) {
+      for (let i = 1; i < 10; i++) {
+        if (boardRandom == i) {
+          getClass = document.querySelector(`.box${i}`);
+          console.log(getClass);
+          drawCircle(getClass);
+        }
+        boardValue[random] = "O";
+      }
+      allBoard.push(typeof boardValue[random]);
+      console.log(allBoard);
+
+      checkWinner();
+      gamePlay.player.turn = true;
+      gamePlay.computer.turn = false;
+      console.log(gamePlay.computer.turn, gamePlay.player.turn);
+    }
+  }
+
+  function drawCircle(getClass) {
+    newPic = document.createElement("img");
+    newPic.setAttribute("src", "./icons/circle.svg");
+    getClass.appendChild(newPic); // add picture to the div class
+    getClass.classList.add("circle");
+  }
+
+  function checkWinner() {
+    if (
+      (boardValue[0] == "X" && boardValue[1] == "X" && boardValue[2] == "X") ||
+      (boardValue[3] == "X" && boardValue[4] == "X" && boardValue[5] == "X") ||
+      (boardValue[6] == "X" && boardValue[7] == "X" && boardValue[8] == "X") ||
+      (boardValue[0] == "X" && boardValue[3] == "X" && boardValue[6] == "X") ||
+      (boardValue[1] == "X" && boardValue[4] == "X" && boardValue[7] == "X") ||
+      (boardValue[2] == "X" && boardValue[5] == "X" && boardValue[8] == "X") ||
+      (boardValue[0] == "X" && boardValue[4] == "X" && boardValue[8] == "X") ||
+      (boardValue[6] == "X" && boardValue[4] == "X" && boardValue[2] == "X")
+    ) {
+      player_won = "true";
+      console.log(player_won);
+      valueCheck++;
+
+      if (valueCheck <= 1) {
+        console.log("You Won!");
+        youWon();
+      }
+      return;
+    } else if (
+      (boardValue[0] == "O" && boardValue[1] == "O" && boardValue[2] == "O") ||
+      (boardValue[3] == "O" && boardValue[4] == "O" && boardValue[5] == "O") ||
+      (boardValue[6] == "O" && boardValue[7] == "O" && boardValue[8] == "O") ||
+      (boardValue[0] == "O" && boardValue[3] == "O" && boardValue[6] == "O") ||
+      (boardValue[1] == "O" && boardValue[4] == "O" && boardValue[7] == "O") ||
+      (boardValue[2] == "O" && boardValue[5] == "O" && boardValue[8] == "O") ||
+      (boardValue[0] == "O" && boardValue[4] == "O" && boardValue[8] == "O") ||
+      (boardValue[6] == "O" && boardValue[4] == "O" && boardValue[2] == "O")
+    ) {
+      computer_won = "true";
+      valueCheck++;
+      console.log("computer won: ", computer_won);
+
+      if (valueCheck <= 1) {
+        console.log("You Lose!");
+        computerHasWon();
+      }
+      return;
+    }
+  }
+
+  function youWon() {
+    let text = document.createElement("p");
+
+    text.innerHTML = "Congrats! You've won!";
+    result.appendChild(text);
+  }
+
+  function computerHasWon() {
+    let text = document.createElement("p");
+
+    text.innerHTML = "Sorry! But Computer has won!";
+    result.appendChild(text);
+  }
+
+  function gameTie() {
+    let text = document.createElement("p");
+
+    text.innerHTML = "Woops! It's a tie!";
+    result.appendChild(text);
+  }
+  return {
+    boardValue,
+    allBoard,
+    valueCheck,
+    computer_won,
+    player_won,
+  };
+})();

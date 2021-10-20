@@ -48,6 +48,7 @@ const gameBoard = (() => {
         console.log(getClass, classNames);
 
         newPic = document.createElement("img");
+        newPic.classList.add("crossImg");
         newPic.setAttribute("src", "./icons/cross.svg");
         getClass.appendChild(newPic);
         getClass.classList.add("cross");
@@ -71,22 +72,55 @@ const gameBoard = (() => {
     });
   });
 
-  // restartButton.addEventListener("click", restartGame);
+  restartButton.addEventListener("click", restartGame);
 
-  // function restartGame() {
-  //   boardValue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  //   allBoard = [];
-  //   valueCheck = 0;
-  //   computer_won = "false";
-  //   player_won = "false";
-  //   gamePlay.player.turn = true;
-  //   gamePlay.computer.turn = false;
+  function restartGame() {
+    boardValue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    allBoard = [];
+    valueCheck = 0;
+    computer_won = "false";
+    player_won = "false";
+    gamePlay.player.turn = true;
+    gamePlay.computer.turn = false;
 
-  //   console.log(box1);
-  //   console.log(boardValue, allBoard, valueCheck, computer_won, player_won);
-  //   box1.classList.remove("cross");
-  //   console.log(box1);
-  // }
+    let removeCrossImg = document.querySelectorAll(".crossImg");
+    for (let i = 0; i < removeCrossImg.length; i++) {
+      let imgParent = removeCrossImg[i].parentNode;
+      imgParent.removeChild(removeCrossImg[i]);
+    }
+
+    let removeCircleImg = document.querySelectorAll(".circleImg");
+    for (let i = 0; i < removeCircleImg.length; i++) {
+      // remove img tag
+      let imgParent = removeCircleImg[i].parentNode;
+      imgParent.removeChild(removeCircleImg[i]);
+    }
+
+    // remove cross class in div
+    let removeCrossClass = document.querySelectorAll(".cross");
+    for (let i = 0; i < removeCrossClass.length; i++) {
+      removeCrossClass[i].classList.remove("cross");
+    }
+
+    // remove circle class in div
+    let removeCircleClass = document.querySelectorAll(".circle");
+    for (let i = 0; i < removeCircleClass.length; i++) {
+      removeCircleClass[i].classList.remove("circle");
+    }
+
+    // remove winner text
+    let winnerSelect = document.querySelector(".winner");
+    let txtParent = winnerSelect.parentNode;
+    txtParent.removeChild(winnerSelect);
+
+    // remove tie text
+    let noWinnerSelect = document.querySelector(".noWinner");
+    let noWinnerParent = noWinnerSelect.parentNode;
+    noWinnerParent.removeChild(noWinnerSelect);
+
+    console.log(box1);
+    console.log(boardValue, allBoard, valueCheck, computer_won, player_won);
+  }
 
   function playerComputer() {
     const allStrings = allBoard.every((board) => typeof board == "string");
@@ -152,6 +186,7 @@ const gameBoard = (() => {
 
   function drawCircle(getClass) {
     newPic = document.createElement("img");
+    newPic.classList.add("circleImg");
     newPic.setAttribute("src", "./icons/circle.svg");
     getClass.appendChild(newPic); // add picture to the div class
     getClass.classList.add("circle");
@@ -201,6 +236,7 @@ const gameBoard = (() => {
 
   function youWon() {
     let text = document.createElement("p");
+    text.classList.add("winner");
 
     text.innerHTML = "Congrats! You've won!";
     result.appendChild(text);
@@ -208,6 +244,7 @@ const gameBoard = (() => {
 
   function computerHasWon() {
     let text = document.createElement("p");
+    text.classList.add("winner");
 
     text.innerHTML = "Sorry! But Computer has won!";
     result.appendChild(text);
@@ -215,6 +252,7 @@ const gameBoard = (() => {
 
   function gameTie() {
     let text = document.createElement("p");
+    text.classList.add("noWinner");
 
     text.innerHTML = "Woops! It's a tie!";
     result.appendChild(text);
